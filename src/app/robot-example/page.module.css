@@ -1,19 +1,15 @@
 .main {
+  /* view-transition-name: page-transition; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
-}
 
-.button {
-  position: relative;
-  margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
+  @media (max-width: 730px) {
+    padding: 6rem 0;
+  }
 }
 
 .smallRobotImage {
@@ -25,7 +21,12 @@
   width: 100px;
   display: block;
 
-}
+  @media (max-width: 730px) {
+  top: 100px;
+  right: 30px;
+
+  }
+  }
 
 .bigRobotImage {
   view-transition-name: robot-transition;
@@ -44,4 +45,7 @@
   left: 100px;
   top: 230px;
   max-width: 500px;
+  @media (max-width: 730px) {
+  left: 10px;
+}
 }

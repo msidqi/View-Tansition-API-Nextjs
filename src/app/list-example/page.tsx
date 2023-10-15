@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { useState } from "react";
 import { flushSync } from "react-dom";
 import { useRouter, useSearchParams } from "next/navigation";
+import Button from "@/components/NextButton";
 
 export const images = ["robot", "nextjs", "reactjs"];
 
@@ -17,7 +18,7 @@ export default function ListPage() {
     document.startViewTransition(() => {
       flushSync(() => {
         setCurrentItem(item);
-        router.push(`/list/?item=${item}`);
+        router.push(`/list-example/?item=${item}`);
       });
     });
   };
@@ -27,12 +28,7 @@ export default function ListPage() {
       {!currentItem && (
         <section className={styles.imageContainer}>
           {images.map((val) => (
-            <button
-              type="button"
-              key={val}
-              className={styles.itemContainer}
-              onClick={() => handleItemClick(val)}
-            >
+            <Button key={val} onClick={() => handleItemClick(val)}>
               <Image
                 style={{ viewTransitionName: `item-transition-${val}` }}
                 src={`/${val}.png`}
@@ -41,7 +37,7 @@ export default function ListPage() {
                 height={100}
                 priority
               />
-            </button>
+            </Button>
           ))}
         </section>
       )}

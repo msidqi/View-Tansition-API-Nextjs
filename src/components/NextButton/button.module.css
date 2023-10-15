@@ -1,0 +1,7 @@
+.button {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: rgba(var(--callout-rgb), 0.5);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  cursor: pointer;
+}

@@ -2,10 +2,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useRef } from "react";
+import Button from "@/components/NextButton";
+import { useRouter } from "next/navigation";
+import { flushSync } from "react-dom";
 
 export default function Home() {
   const smallRobot = useRef<HTMLImageElement>(null);
   const bigRobot = useRef<HTMLImageElement>(null);
+  const router = useRouter();
   const onClick = () => {
     document.startViewTransition(() => {
       if (smallRobot.current && bigRobot.current) {
@@ -17,11 +21,17 @@ export default function Home() {
     });
   };
 
+  const nextExample = () => {
+    document.startViewTransition(() => {
+      flushSync(() => {
+        router.push("/list-example");
+      });
+    });
+  };
+
   return (
     <main className={styles.main}>
-      <button type="button" onClick={onClick} className={styles.button}>
-        Transition
-      </button>
+      <Button onClick={onClick}>Transition</Button>
 
       <div className={styles.textContainer}>
         <p>
@@ -60,6 +70,8 @@ export default function Home() {
         height={100}
         priority
       />
+
+      <Button onClick={nextExample}>{"Next Example >"}</Button>
     </main>
   );
 }
