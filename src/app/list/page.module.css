@@ -1,0 +1,37 @@
+.main {
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 50px;
+}
+
+.itemContainer {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.currentItemContainer {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  max-width: min-content;
+  margin: 0 auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.title {
+  margin-bottom: 60px;
+  text-align: center;
+}
