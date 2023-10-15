@@ -16,20 +16,32 @@
   border-radius: var(--border-radius);
 }
 
-.robotImage0 {
+.smallRobotImage {
   view-transition-name: robot-transition;
   position: absolute;
   right: 100px;
-  top: 100px;
+  top: 200px;
   height: 100px;
   width: 100px;
   display: block;
 
 }
 
-.robotImage1 {
+.bigRobotImage {
   view-transition-name: robot-transition;
   height: 300px;
   width: 300px;
   display: none;
+}
+
+.textContainer p {
+  margin-bottom: 10px;
+}
+
+.textContainer {
+  white-space: pre-line;
+  position: absolute;
+  left: 100px;
+  top: 230px;
+  max-width: 500px;
 }
