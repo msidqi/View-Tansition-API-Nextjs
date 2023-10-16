@@ -4,9 +4,8 @@ import styles from "./page.module.css";
 import { useState } from "react";
 import { flushSync } from "react-dom";
 import { useRouter, useSearchParams } from "next/navigation";
-import Button from "@/components/NextButton";
 
-export const images = ["robot", "nextjs", "reactjs"];
+const images = ["robot", "nextjs", "reactjs"];
 
 export default function ListPage() {
   const router = useRouter();
