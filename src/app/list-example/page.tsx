@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { useState } from "react";
 import { flushSync } from "react-dom";
 import { useRouter, useSearchParams } from "next/navigation";
+import Button from "@/components/NextButton";
 
 const images = ["robot", "nextjs", "reactjs"];
 
@@ -18,6 +19,14 @@ export default function ListPage() {
       flushSync(() => {
         setCurrentItem(item);
         router.push("/list-example" + (item ? `/?item=${item}` : ""));
+      });
+    });
+  };
+
+  const nextExample = () => {
+    document.startViewTransition(() => {
+      flushSync(() => {
+        router.push("/robot-example");
       });
     });
   };
@@ -62,6 +71,9 @@ export default function ListPage() {
           </div>
         </section>
       )}
+      <div className={styles.buttonContainer}>
+        <Button onClick={nextExample}>{"Next Example >"}</Button>
+      </div>
     </main>
   );
 }

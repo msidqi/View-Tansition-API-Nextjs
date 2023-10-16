@@ -1,11 +1,16 @@
 .main {
   /* view-transition-name: page-transition; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 6rem;
   min-height: 100vh;
+
   @media (max-width: 730px) {
     padding: 6rem 0;
   }
 }
+
 
 .imageContainer {
   display: flex;
@@ -30,5 +35,9 @@
 
 .title {
   margin-bottom: 60px;
+  text-align: center;
+}
+
+.buttonContainer {
   text-align: center;
 }
