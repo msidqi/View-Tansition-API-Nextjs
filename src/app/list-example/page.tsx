@@ -14,11 +14,11 @@ export default function ListPage() {
   const [currentItem, setCurrentItem] = useState<string | null>(() =>
     params.get("item")
   );
-  const handleItemClick = (item: string) => {
+  const handleItemClick = (item: string | null) => {
     document.startViewTransition(() => {
       flushSync(() => {
         setCurrentItem(item);
-        router.push(`/list-example/?item=${item}`);
+        router.push("/list-example" + (item ? `/?item=${item}` : ""));
       });
     });
   };
@@ -28,25 +28,32 @@ export default function ListPage() {
       {!currentItem && (
         <section className={styles.imageContainer}>
           {images.map((val) => (
-            <Button key={val} onClick={() => handleItemClick(val)}>
+            <div
+              className={styles.currentItemContainer}
+              key={val}
+              onClick={() => handleItemClick(val)}
+              style={{ viewTransitionName: `item-transition-${val}` }}
+            >
               <Image
-                style={{ viewTransitionName: `item-transition-${val}` }}
                 src={`/${val}.png`}
                 alt="item image"
                 width={100}
                 height={100}
                 priority
               />
-            </Button>
+            </div>
           ))}
         </section>
       )}
       {currentItem && (
         <section className={styles.section}>
           <h1 className={styles.title}>{currentItem}</h1>
-          <div className={styles.currentItemContainer}>
+          <div
+            className={styles.currentItemContainer}
+            style={{ viewTransitionName: `item-transition-${currentItem}` }}
+          >
             <Image
-              style={{ viewTransitionName: `item-transition-${currentItem}` }}
+              onClick={() => handleItemClick(null)}
               src={`/${currentItem}.png`}
               alt="item image"
               width={300}

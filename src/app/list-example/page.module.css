@@ -19,6 +19,7 @@
   padding: 1rem;
   max-width: min-content;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .section {
